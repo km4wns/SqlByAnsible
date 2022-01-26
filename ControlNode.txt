@@ -1,0 +1,136 @@
+#
+# Linux Version : CenOS 8
+#
+
+
+OpenSource
+github
+RedHat
+
+Agent-less
+SSH
+WinRM
+
+
+##### Update Python to 3.8
+python3 --version
+3.6.8
+
+Update python to 3.8 - https://computingforgeeks.com/how-to-install-python-3-on-centos/
+
+sudo yum -y install epel-release
+sudo yum -y update
+
+sudo reboot
+
+sudo yum -y groupinstall "Development Tools"
+sudo yum -y install openssl-devel bzip2-devel libffi-devel xz-devel
+
+gcc --version
+
+sudo yum -y install wget
+wget https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tgz
+
+tar xvf Python-3.8.12.tgz
+
+cd Python-3.8*/
+
+
+./configure --enable-optimizations
+
+sudo make altinstall
+
+python3.8 --version
+
+pip3.8 --version
+
+
+#####  Install Ansible
+
+Debian
+Python pip
+rpm
+
+# linux
+sudo su
+apt-get update
+
+app-get 
+
+app-add-repository ppa:ansible/ansible
+
+app-get install ansible -y
+
+ansible --version
+
+
+# Windows-WSL
+sudo app-get update
+
+sudo app-get install python3-pip -y
+
+sudo pip3 install ansible
+
+ansible --version
+
+sudo pip3 install pywinrm
+
+sudo pip3 install pywinrm[credssp]
+
+# Winrm config
+Listener - 
+https:5986
+
+Authentication -
+credssp
+
+winrm enumerate winrm/config/Listener
+
+winrm get winrm/config/Listener
+
+wget 
+
+change 
+
+Restart-Service winrm
+
+
+
+# 
+sudo mkdir /etc/ansible
+nano /etc/ansible/hosts
+
+ansible web -m win_ping
+
+
+# module
+win_ping
+win_gether_facts
+win_copy
+win_firewall_rule
+
+
+ansible-playbook ccc.yaml
+
+
+
+
+#  Inventory, Playbook, Role
+
+ansible webserver -m win_ping
+
+/etc/ansible/hosts
+
+ansible linux -m ping
+
+
+Modules are Indempotent
+- win_gether_facts
+
+ansible window_servers -m win_gether_facts
+
+
+# 
+mkdir ./projects/ansible -p
+
+
